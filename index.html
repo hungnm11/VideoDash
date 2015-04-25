@@ -11,12 +11,22 @@
         <script src="js/plugin.js"></script>
         <script>
             var myPlugin = new Modal({
-                mpdURL: "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd"
+                mpdURL: "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd",
+                screenSize: {
+                maxWidthScreen: 640,
+                maxHeightScreen: 480
+            },
+            advertisement: {
+                setTimeStart: 2,
+                setAdvertisementTime: 10,
+                setContent: ""
+            },
+            poster: "http://video-js.zencoder.com/oceans-clip.png"
             });
             
             var elem = document.querySelector("#videoPlayer");
             myPlugin.streamDASH(elem);
-            //console.log(myPlugin);
+            //console.log(child);
             
         </script>
     </body>
