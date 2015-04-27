@@ -40,12 +40,12 @@
     
     Modal.prototype.streamDASH = function(elem) {
         
-        var url = this.options.mpdURL;
+        this.url = this.options.mpdURL;
         var context = new Dash.di.DashContext();
         var player = new MediaPlayer(context);
         player.startup();
         player.attachView(elem);
-        player.attachSource(url);
+        player.attachSource(this.url);
                 
         this.setScreenSize();
 
