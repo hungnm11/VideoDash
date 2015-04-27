@@ -31,24 +31,48 @@
         return source;
     }
     
-    Modal.prototype.setScreenSize = function() {
-        this.vid = document.querySelector('video');
-        this.vid.setAttribute('width', this.options.screenSize.maxWidthScreen);
-        this.vid.setAttribute('height', this.options.screenSize.maxHeightScreen);
-        this.vid.setAttribute('poster', this.options.poster);
+    
+     var createEl = function(tagName) {
+        var el;
+        
+        tagName = tagName || 'div';
+        properties = properties || {};
+        
+        el = document.createElement(tagName);
+        console.log(el);
+        return el;
     };
     
-    Modal.prototype.streamDASH = function(elem) {
+    this.each = function(obj, fn, context) {
+        for (var key in obj) {
+            if (hasOwnProp.call(obj, key)) {
+                fn.call(context || this, key, obj[key]);
+            }
+        }
         
+    };
+    
+    Modal.prototype.setScreenSize = function(el) {
+        this.el_ = el;
+        this.el_.setAttribute('width', this.options.screenSize.maxWidthScreen);
+        this.el_.setAttribute('height', this.options.screenSize.maxHeightScreen);
+        this.el_.setAttribute('poster', this.options.poster);
+        
+        
+    };
+    
+    Modal.prototype.createEl = function() {
+        //var elem = document.createElement('div');
+    };
+    
+    Modal.prototype.streamDASH = function(el) {
         this.url = this.options.mpdURL;
         var context = new Dash.di.DashContext();
         var player = new MediaPlayer(context);
         player.startup();
-        player.attachView(elem);
+        player.attachView(el);
         player.attachSource(this.url);
-                
-        this.setScreenSize();
-
+        this.setScreenSize(el);
     };
     
     

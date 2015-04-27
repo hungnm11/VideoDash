@@ -7,14 +7,14 @@
         
     </head>
     <body>
-        <div>
-            <video id="videoPlayer" controls="true"></video>
-        </div>
+        
+        <video id="videoPlayer" controls="true"></video>
+        
         <script src="js/dash.all.js"></script>
         <script src="js/plugin.js"></script>
         <script>
             var myPlugin = new Modal({
-                mpdURL: "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd",
+                mpdURL:  "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd",
                 screenSize: {
                 maxWidthScreen: 640,
                 maxHeightScreen: 480
@@ -29,7 +29,6 @@
             
             var elem = document.querySelector("#videoPlayer");
             myPlugin.streamDASH(elem);
-            //console.log(child);
             
         </script>
     </body>
