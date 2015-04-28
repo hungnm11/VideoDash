@@ -1,5 +1,5 @@
-<!doctype html>
 <html>
+<<<<<<< remotes/origin/Developing
     <head>
         <title>Dash</title>
         <link href="css/style.less" rel="stylesheet/less" type="text/css">
@@ -32,4 +32,55 @@
             
         </script>
     </body>
+=======
+
+<head>
+
+  <!-- Loading Video.js CDN-hosted Scripts from videojs.com -->
+  <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+    <!-- Include dash.all.js instead of uncompiled source -->
+  <script src="js/dash.all.js"></script>
+
+  <!-- Load videojs-tech-dashjs after both other projects -->
+  <script src="js/script.js"></script>
+
+</head>
+<body>
+
+<h1>videojs-dashjs demo</h1>
+
+<!-- Standard video.js embed with a DASH source -->
+<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" 
+  data-setup="{}">
+  <source src="http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd" type='application/dash+xml'>
+</video>
+      (note: fullscreen is blocked in the jsfiddle iframe. See <a href="http://jsfiddle.net/heff/FA8zN/11/show/light/" target="_blank">this version</a> for fullscreen.)
+      
+<!-- DEMO-SPECIFIC CODE -->
+<p>This demo shows <a href="http://dashif.org/mpeg-dash/" target="_blank">MPEG-DASH</a> playback using <a href="http://www.videojs.com" target="_blank">Video.js</a> as the player and <a href="https://github.com/Dash-Industry-Forum/dash.js" target="_blank">Dash.js</a> as the media controller (or "playback tech"). There is also a <a href="https://github.com/heff/videojs-dashjs" target="_blank">video.js plugin with this code</a>.</p>
+
+<p><strong>For video.js</strong>, this adds support for MPEG-DASH in browsers that support the Media Source Extensions (currently IE11 and the latest version of Chrome).</p>
+      
+      <p><strong>For dash.js</strong>, this gives access to all of the <a href="https://github.com/videojs/video.js/wiki/Plugins" target="_blank">video.js plugins</a>, <a href="http://designer.videojs.com" target="_blank">custom skinnning</a>, and support for falling back to other formats/technologies (HLS/MP4/Webm, HTML5/Flash/Youtube).<br><strong>Examples of custom video.js players:</strong>
+  <ul>
+    <li><a href="http://video.allure.com/watch/beauty-blogger-awards-2014-challenge-2-marianna-hewitt-revlon-makeover-part-3" target="_blank">Allure (Conde Nast)</a></li>
+    <li><a href="http://www.funnyordie.com/videos/dbd6ca435f/billy-on-the-street-it-s-not-pitbull-it-s-amy-poehler" target="_blank">Funny or Die</a></li>
+    <li><a href="http://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded#section/1" target="_blank">The Guardian</a></li>
+  </ul>
+</p>
+
+      <p>If you have any questions or comments, use the <a href="https://github.com/heff/videojs-dashjs/issues" target="_blank">videojs-dashjs issue tracker</a>.</p>
+      
+<div id='dash-not-supported'>DASH (through Media Source Extensions) is not supported in your browser, you are currently viewing a fallback MP4 playing through Flash or HTML5 video. Try using the latest version of <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">IE</a> or <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>.</div>      
+<script>
+  var notSupportedDiv = document.getElementById('dash-not-supported');
+  if (!videojs.Dashjs.isSupported()) {
+    document.body.insertBefore(notSupportedDiv, document.getElementById('vid1'));
+    notSupportedDiv.style.display = 'block';
+  }
+</script>
+
+</body>
+>>>>>>> local
 </html>
